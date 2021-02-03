@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: psm-deployment
+spec:
+  selector:
+    matchLabels:
+      app: psm
+  replicas: {{ .Values.deployment_count }}
+  template:
+    metadata:
+      labels:
+        app: psm
+    spec:
+      containers:
+      - name: psm
+        image: neethi209/psm:latest
+        ports:
+        - containerPort: {{ .Values.container_port }}

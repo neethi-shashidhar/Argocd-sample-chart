@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cm-deployment
+spec:
+  selector:
+    matchLabels:
+      app: cm
+  replicas: {{ .Values.deployment_count }}
+  template:
+    metadata:
+      labels:
+        app: cm
+    spec:
+      containers:
+      - name: cm
+        image: neethi209/cmp-node:latest
+        ports:
+        - containerPort: {{ .Values.container_port }}

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cr-deployment
+spec:
+  selector:
+    matchLabels:
+      app: cr
+  replicas: {{ .Values.deployment_count }}
+  template:
+    metadata:
+      labels:
+        app: cr
+    spec:
+      containers:
+      - name: cr
+        image: neethi209/container-registry:latest
+        ports:
+        - containerPort: {{ .Values.container_port }}

@@ -1,0 +1,3 @@
+
+container_port: 8080
+deployment_count: 3
