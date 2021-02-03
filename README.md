@@ -1,1 +1,1 @@
-# Argocd-smaple-chart
+# Argocd-sample-chart
